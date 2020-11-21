@@ -50,7 +50,8 @@ public class FrameHamburger extends Fragment {
         items = new ArrayList<>();
 
         database=FirebaseDatabase.getInstance();
-        //databaseReference=database.getReference("Food/KFC/Hamburger");
+        //아래 코드로 하면 food1은 가져와진다.
+        //databaseReference=database.getReference().child("Food").child("KFC").child("Hamburger").child("food1");
         databaseReference=database.getReference().child("Food").child("KFC").child("Hamburger");
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -58,8 +59,8 @@ public class FrameHamburger extends Fragment {
                 System.out.println("@@@@제대로 들와짐");
                 items.clear();
                 for(DataSnapshot snapshot1 : snapshot.getChildren()){
-                    Food food = snapshot.getValue(Food.class);
-                    System.out.println("@@@@" + food.getFoodName());
+                    Food food = snapshot1.getValue(Food.class);
+                    System.out.println("@@@@" + food);
                     items.add(food);
                 }
                 adapter.notifyDataSetChanged();

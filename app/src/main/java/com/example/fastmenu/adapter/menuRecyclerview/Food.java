@@ -1,5 +1,8 @@
 package com.example.fastmenu.adapter.menuRecyclerview;
 
+//import com.google.firebase.database.IgnoreExtraProperties;
+
+//@IgnoreExtraProperties
 public class Food {
     private String foodPic;
     private String foodName;
@@ -46,6 +49,8 @@ public class Food {
     public void setSalePeriod(String salePeriod) {
         this.salePeriod = salePeriod;
     }
+
+
 
 
 }

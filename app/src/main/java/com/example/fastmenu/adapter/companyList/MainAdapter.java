@@ -20,8 +20,6 @@ import java.util.ArrayList;
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     public ArrayList<Company> companies = null;
-    //private Context context;
-
 
     public MainAdapter(ArrayList<Company> companies){
         this.companies = companies;

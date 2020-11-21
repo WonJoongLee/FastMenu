@@ -35,7 +35,7 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.ViewHo
     public void onBindViewHolder(@NonNull FoodItemAdapter.ViewHolder holder, int position) {
         Glide.with(holder.itemView)
                 .load(items.get(position).getFoodPic())
-                .into(holder.menuImageView);
+                .into(holder.foodPic);
         holder.foodName.setText(items.get(position).getFoodName());
         holder.foodPrice.setText(items.get(position).getFoodPrice());
         holder.salePeriod.setText(items.get(position).getSalePeriod());
@@ -48,14 +48,14 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView menuImageView;
+        ImageView foodPic;
         TextView foodName;
         TextView foodPrice;
         TextView salePeriod;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            menuImageView = itemView.findViewById(R.id.menuImageView);
+            foodPic = itemView.findViewById(R.id.menuImageView);
             foodName = itemView.findViewById(R.id.foodName);
             foodPrice = itemView.findViewById(R.id.foodPrice);
             salePeriod = itemView.findViewById(R.id.salePeriod);
