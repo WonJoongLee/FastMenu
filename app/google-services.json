@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "54943697404",
+    "firebase_url": "https://fastmenu-9523c.firebaseio.com",
+    "project_id": "fastmenu-9523c",
+    "storage_bucket": "fastmenu-9523c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54943697404:android:0bb516a15e7a78e5408a79",
+        "android_client_info": {
+          "package_name": "com.example.fastmenu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54943697404-4dnqbbpmhv1a7l1m4bqi62jnaj42r2rn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fastmenu",
+            "certificate_hash": "9153f521cd2a426c953afa2f429135d5f8ac474d"
+          }
+        },
+        {
+          "client_id": "54943697404-a00hu4kraok80700lq596a7oba2d3vd5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH08e10IH39Pe-IDs4R2-0fXKbrGNDdx8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54943697404-a00hu4kraok80700lq596a7oba2d3vd5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
