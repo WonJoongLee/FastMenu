@@ -38,7 +38,12 @@ public class FoodItemAdapter extends RecyclerView.Adapter<FoodItemAdapter.ViewHo
                 .into(holder.foodPic);
         holder.foodName.setText(items.get(position).getFoodName());
         holder.foodPrice.setText(items.get(position).getFoodPrice());
-        holder.salePeriod.setText(items.get(position).getSalePeriod());
+        if(items.get(position).getSalePeriod().equals("0")){ // When the price of the food is fixed, the "salePeriod" variable is "0" on firebase.
+                                                             // So when it's "0", set the visibility of the variable as "GONE".
+            holder.salePeriod.setVisibility(View.GONE);
+        }else{
+            holder.salePeriod.setText(items.get(position).getSalePeriod());
+        }
     }
 
     @Override

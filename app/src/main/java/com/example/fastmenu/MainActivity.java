@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.fastmenu.adapter.companyList.Company;
 import com.example.fastmenu.adapter.companyList.MainAdapter;
@@ -15,7 +17,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.hanks.htextview.base.HTextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,14 +30,39 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Company> companies;
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
-    private int i = 0;
+
+    private HTextView animatedLogo;
+    private ArrayList<String> arrMessages = new ArrayList<>();
+    private int delay = 3500;
+    private Handler handler;
+    private int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Context context = recyclerView.getContext();
+        animatedLogo = findViewById(R.id.fallTextviewLogo);
+        arrMessages.add("Fastfood Menu");
+        arrMessages.add("FM");
+        arrMessages.add("Fastest Menu");
+        arrMessages.add("FM");
+        animatedLogo.animateText(arrMessages.get(position));
+        position++;
+
+        handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                handler.postDelayed(this, delay);
+                if(position>=arrMessages.size())
+                    position = 0;
+                animatedLogo.animateText(arrMessages.get(position));
+                position++;
+            }
+        }, delay);
+
+
         recyclerView = findViewById(R.id.main_recyclerView);
         recyclerView.setHasFixedSize(true); // when size is fixed.
                                             // It should be modified when firebase is connected.

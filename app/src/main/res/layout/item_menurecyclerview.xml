@@ -21,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toRightOf="@id/menuImageView"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         >
 
         <TextView
@@ -42,7 +43,7 @@
             android:textColor="@color/black"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             />
 
         <TextView
@@ -50,10 +51,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sale Period"
-            android:textColor="@color/black"
+            android:textColor="@color/gray"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             />
 
 
