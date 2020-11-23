@@ -37,6 +37,8 @@ public class FrameHamburger extends Fragment {
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
+    private String companyName;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,8 +53,7 @@ public class FrameHamburger extends Fragment {
 
         database=FirebaseDatabase.getInstance();
         //아래 코드로 하면 food1은 가져와진다.
-        //databaseReference=database.getReference().child("Food").child("KFC").child("Hamburger").child("food1");
-        databaseReference=database.getReference().child("Food").child("KFC").child("Hamburger");
+        databaseReference=database.getReference().child("Food").child(companyName).child("Hamburger");
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -77,4 +78,9 @@ public class FrameHamburger extends Fragment {
 
         return view;
     }
+
+    public void setCompanyName(String name){
+        companyName = name;
+    }
+
 }

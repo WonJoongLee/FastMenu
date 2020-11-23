@@ -51,6 +51,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         ImageView image;
         TextView text;
+        String companyName;//서버로부터 상호명만 가져와서 companyName에 저장
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -68,11 +69,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                         //메서드는 NO_POSITION을 리턴하기 때문에 이 검사를 해줘야 한다.
                         Company item = companies.get(pos);//companies ArrayList에서 click된 pos의 item을 가져와서 item 변수에 넣는다.
 
-                        if(item.getText().equals("KFC")){
-                            Intent intentKFC = new Intent(view.getContext(), Menu.class);
-                            context.startActivity(intentKFC);
-                        }
+                        companyName = item.getText();//firebase 서버로부터 상호명 가져와서 companyName변수에 저장
 
+                        Intent intent = new Intent(view.getContext(), Menu.class);
+                        intent.putExtra("CompanyName", companyName);//CompanyName에 실제 상호명(companyName)같이 언져서 다음 화면(Menu.class)으로 전달
+                        context.startActivity(intent);
                     }
                 }
             });

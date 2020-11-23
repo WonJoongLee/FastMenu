@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class FrameChicken extends Fragment {
+public class FrameBeverage extends Fragment {
 
 
     private View view;
@@ -40,10 +40,10 @@ public class FrameChicken extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.fragment_chicken, container, false);
+        view=inflater.inflate(R.layout.fragment_beverage, container, false);
 
         Context context = view.getContext();
-        recyclerView = (RecyclerView) view.findViewById(R.id.menuChickenRecyclerView);
+        recyclerView = (RecyclerView) view.findViewById(R.id.menuBeverageRecyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(layoutManager);
@@ -51,8 +51,7 @@ public class FrameChicken extends Fragment {
 
         database=FirebaseDatabase.getInstance();
         //아래 코드로 하면 food1은 가져와진다.
-        //databaseReference=database.getReference().child("Food").child("KFC").child("Hamburger").child("food1");
-        databaseReference=database.getReference().child("Food").child("KFC").child("Chicken");
+        databaseReference=database.getReference().child("Food").child("KFC").child("Beverage");//이 부분에서 지금 KFC라고 되어 있는 부분은 나중에 이전 페이지로부터 intent로 넘겨받아서 string으로 설정해줘야 함
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -77,4 +76,5 @@ public class FrameChicken extends Fragment {
 
         return view;
     }
+
 }
