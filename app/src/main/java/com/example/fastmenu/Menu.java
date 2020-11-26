@@ -54,9 +54,11 @@ public class Menu extends AppCompatActivity {
                     return frameHamburger;
                 case 1:
                     FrameChicken frameChicken = new FrameChicken();
+                    frameChicken.setCompanyName(companyName);
                     return frameChicken;
                 case 2:
                     FrameBeverage frameBeverage = new FrameBeverage();
+                    frameBeverage.setCompanyName(companyName);
                     return frameBeverage;
             }
             return null;

@@ -37,6 +37,8 @@ public class FrameBeverage extends Fragment {
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
+    private String companyName;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -51,7 +53,7 @@ public class FrameBeverage extends Fragment {
 
         database=FirebaseDatabase.getInstance();
         //아래 코드로 하면 food1은 가져와진다.
-        databaseReference=database.getReference().child("Food").child("KFC").child("Beverage");//이 부분에서 지금 KFC라고 되어 있는 부분은 나중에 이전 페이지로부터 intent로 넘겨받아서 string으로 설정해줘야 함
+        databaseReference=database.getReference().child("Food").child(companyName).child("Beverage");//이 부분에서 지금 KFC라고 되어 있는 부분은 나중에 이전 페이지로부터 intent로 넘겨받아서 string으로 설정해줘야 함
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -75,6 +77,10 @@ public class FrameBeverage extends Fragment {
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    public void setCompanyName(String name){
+        companyName = name;
     }
 
 }
